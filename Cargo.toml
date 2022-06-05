@@ -1,0 +1,26 @@
+[package]
+name = "finans"
+version = "0.1.0"
+edition = "2021"
+
+[profile.dev]
+opt-level = 1
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[workspace]
+members = ["crates/*"]
+
+[dependencies]
+bevy = "0.7"
+bevy_kira_audio = { version = "0.10.0", features = ["ogg", "wav"] }
+serde = "1.0"
+ron = "0.7"
+rand = "0.8"
+
+camera = { path = "crates/camera", version = "0.1.0" }
+debug = { path = "crates/debug", version = "0.1.0" }
+board = { path = "crates/board", version = "0.1.0" }
+
+# cargo run --release --features bevy/trace,bevy/trace_chrome
